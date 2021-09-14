@@ -17,7 +17,7 @@ class gallery extends StatelessWidget {
         ),
         MyAppBar(),
         Row(
-          children: [Image.asset('img/chair.jpg'), Text('data')],
+          children: [Image.asset('img/chair.jpg'), Text('datkfndfknda')],
         )
       ],
     ));
