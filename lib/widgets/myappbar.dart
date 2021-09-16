@@ -7,39 +7,59 @@ class MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(isdrawer);
-    return Container(
-        child: Padding(
-      padding: const EdgeInsets.all(20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          SizedBox(height: 80),
-          Image.asset(
-            'icon/cart.png',
-            height: 26,
-          ),
-          SizedBox(width: 25),
-          isdrawer
-              ? InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/drawer');
-                  },
-                  child: InkWell(
+    return Column(
+      children: [
+        Container(
+            child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(height: 80),
+              isdrawer
+                  ? InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushReplacementNamed(context, '/listview');
                       },
-                      child: Icon(Icons.close)))
-              : InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/drawer');
-                  },
-                  child: Image.asset(
-                    'icon/list.png',
-                    height: 26,
-                  ),
-                ),
-        ],
-      ),
-    ));
+                      child: Container(
+                        child: Image.asset(
+                          'img/setting.png',
+                          height: 25,
+                        ),
+                      ),
+                    )
+                  : Container(),
+              Spacer(
+                flex: 1,
+              ),
+              Image.asset(
+                'icon/cart.png',
+                height: 26,
+              ),
+              SizedBox(width: 25),
+              isdrawer
+                  ? InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/drawer');
+                      },
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.close)))
+                  : InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/drawer');
+                      },
+                      child: Image.asset(
+                        'icon/list.png',
+                        height: 26,
+                      ),
+                    ),
+            ],
+          ),
+        )),
+      ],
+    );
   }
 }

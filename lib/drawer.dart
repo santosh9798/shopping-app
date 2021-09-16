@@ -21,8 +21,8 @@ class drawer extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  'icon/user.png',
-                  height: 70,
+                  'img/user.png',
+                  height: 110,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -30,10 +30,13 @@ class drawer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Santosh kumar',
+                        'Rajnikant Shivaji',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text('user@domain.com')
+                      Text('user@domain.com'),
+                      SizedBox(
+                        height: 25,
+                      )
                     ],
                   ),
                 ),
@@ -45,7 +48,7 @@ class drawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
             },
             child: DrawerItem(
               label: "Explore",
@@ -53,7 +56,7 @@ class drawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/featured');
+              Navigator.pushReplacementNamed(context, '/featured');
             },
             child: DrawerItem(
               label: "Shop",
@@ -61,7 +64,7 @@ class drawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(
+              Navigator.pushReplacementNamed(
                 context,
                 '/collection',
               );
@@ -75,7 +78,7 @@ class drawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/gallery');
+              Navigator.pushReplacementNamed(context, '/gallery');
             },
             child: DrawerItem(
               label: "Gallery",
@@ -91,22 +94,23 @@ class drawer extends StatelessWidget {
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
-            onPressed: () {},
-            child: Text('Profile'),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/profile');
+            },
+            child: Text(
+              'Profile',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           TextButton(
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
             onPressed: () {},
-            child: Text('Setting'),
-          ),
-          TextButton(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            child: Text(
+              'Logout',
+              style: TextStyle(fontSize: 20),
             ),
-            onPressed: () {},
-            child: Text('Loguot'),
           )
         ],
       ),

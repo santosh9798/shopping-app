@@ -6,7 +6,7 @@ class splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, '/login');
+      Navigator.pushReplacementNamed(context, '/secondsplash');
     });
     return Scaffold(
       body: Center(

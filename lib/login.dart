@@ -22,7 +22,7 @@ class login extends StatelessWidget {
                             const TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
+                        // Navigator.pushNamed(context, '/signup');
                         Navigator.of(context).push(_createRoute());
                       },
                       child: const Text(
@@ -92,7 +92,7 @@ class login extends StatelessWidget {
                       backgroundColor: Colors.orangeAccent,
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/featured');
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -121,9 +121,16 @@ class login extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const signup(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
+      pageBuilder: (context, animation, anotherAnimation) {
+        return signup();
+      },
+      transitionDuration: Duration(milliseconds: 500),
+      transitionsBuilder: (context, animation, anotherAnimation, child) {
+        animation =
+            CurvedAnimation(curve: Curves.easeInSine, parent: animation);
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      });
 }
